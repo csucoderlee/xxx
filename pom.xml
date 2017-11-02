@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.csu</groupId>
+    <artifactId>xxx</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>xxx-index</module>
+    </modules>
+
+    <name>xxx Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <org.springframework.version>4.2.3.RELEASE</org.springframework.version>
+        <junit.version>3.8.1</junit.version>
+        <!-- 9.3.11.v20160721版本的jetty, 会报错org/eclipse/jetty/server/Handler : Unsupported major.minor version 52.0 52.0对应jdk1.8-->
+        <jetty.version>8.1.10.v20130312</jetty.version>
+        <fastjson.version>1.2.38</fastjson.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- groovy的依赖 -->
+            <!-- new one groovy file -->
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>2.4.6</version>
+            </dependency>
+
+
+            <!-- scope:provided 只在编译和测试使用, 因为tomcat容器中自带servlet, 项目启动时会与pom中的servlet起冲突 -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- spring mvc -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>xxx</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
