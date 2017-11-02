@@ -5,24 +5,12 @@
 <mapper namespace="org.csu.coderlee.dao.UserDAO">
     <select id="queryById" resultType="User" parameterType="long">
         SELECT
-        book_id,
+        id,
         name,
-        number
+        sex
         FROM
-        book
+        user
         WHERE
-        book_id = #{bookId}
-    </select>
-
-    <select id="queryAll" resultType="User">
-        SELECT
-        book_id,
-        name,
-        number
-        FROM
-        book
-        ORDER BY
-        book_id
-        LIMIT #{offset}, #{limit}
+        id = #{id}
     </select>
 </mapper>
