@@ -1,6 +1,7 @@
 package org.csu.coderlee.controller;
 
 import org.csu.coderlee.dao.UserDAO;
+import org.csu.coderlee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
     @Autowired
-    UserDAO userDAO;
+    UserService userService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public Object index() {
@@ -25,6 +26,6 @@ public class IndexController {
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     @ResponseBody
     public Object User(Long id) {
-        return userDAO.queryById(id);
+        return userService.queryById(id);
     }
 }
