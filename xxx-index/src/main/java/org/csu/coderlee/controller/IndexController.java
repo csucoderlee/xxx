@@ -25,7 +25,7 @@ public class IndexController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     @ResponseBody
-    public Object User(Long id) {
+    public Object user(Long id) {
         return userService.queryById(id);
     }
 }

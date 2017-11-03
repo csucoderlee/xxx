@@ -8,5 +8,10 @@ import org.csu.coderlee.entity.User;
  */
 public interface UserDAO {
 
+    /**
+     * 根据id查找用户
+     * @param id
+     * @return
+     */
     User queryById(long id);
 }
