@@ -1,6 +1,7 @@
 package org.csu.coderlee.controller;
 
 import org.csu.coderlee.dao.UserDAO;
+import org.csu.coderlee.service.AccountService;
 import org.csu.coderlee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,8 @@ public class IndexController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    AccountService accountService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public Object index() {
@@ -27,5 +30,12 @@ public class IndexController {
     @ResponseBody
     public Object user(Long id) {
         return userService.queryById(id);
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @ResponseBody
+    public Object login(String username, String password) {
+//        return userService.queryById(id);
+        return accountService.login(username, password);
     }
 }
