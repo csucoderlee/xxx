@@ -35,7 +35,12 @@ public class IndexController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     @ResponseBody
     public Object login(String username, String password) {
-//        return userService.queryById(id);
         return accountService.login(username, password);
+    }
+
+    @RequestMapping(value = "/login2", method = RequestMethod.GET)
+    @ResponseBody
+    public Object login2(String username, String password) {
+        return accountService.login2(username, password);
     }
 }

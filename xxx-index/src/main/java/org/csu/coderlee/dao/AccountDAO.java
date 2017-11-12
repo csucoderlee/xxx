@@ -3,6 +3,8 @@ package org.csu.coderlee.dao;
 import org.apache.ibatis.annotations.Param;
 import org.csu.coderlee.entity.Account;
 
+import java.util.Map;
+
 /**
  * @author by bixi.lx
  * @created on 2017 11 10 22:51
@@ -16,4 +18,6 @@ public interface AccountDAO {
      * @return
      */
     Account getAccount(@Param("username") String username, @Param("password") String password);
+
+    Account getAccount2(Map map);
 }
