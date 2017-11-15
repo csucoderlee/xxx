@@ -1,10 +1,12 @@
 package org.csu.coderlee.entity;
 
+import java.io.Serializable;
+
 /**
  * @author by bixi.lx
  * @created on 2017 11 10 22:52
  */
-public class Account {
+public class Account implements Serializable{
 
     private String username;
     private String password;

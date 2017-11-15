@@ -1,10 +1,12 @@
 package org.csu.coderlee.entity;
 
+import java.io.Serializable;
+
 /**
  * @author by csucoderlee
  * @created on 2017 11 02 15:50
  */
-public class User {
+public class User implements Serializable{
 
     private String name;
     private Integer sex;

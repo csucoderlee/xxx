@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.csu.coderlee.dao.TopicDAO">
+    <select id="list" resultType="Topic">
+        SELECT
+        id,
+        username
+        FROM
+        account
+        WHERE
+        username = #{username}
+        and password = #{password}
+    </select>
+
+
+    <insert id="insert" parameterType="Topic" >
+        insert into topic
+        <dynamic prepend="(" >
+            <isnotnull prepend="," property="id" >
+                id
+            </isnotnull>
+            <isNotNull prepend="," property="name" >
+                name
+            </isNotNull>
+            <isNotNull prepend="," property="sex" >
+                sex
+            </isNotNull>
+            )
+        </dynamic>
+        values
+        <dynamic prepend="(" >
+            <isNotNull prepend="," property="id" >
+                #id:INTEGER#
+            </isNotNull>
+            <isNotNull prepend="," property="name" >
+                #name:VARCHAR#
+            </isNotNull>
+            <isNotNull prepend="," property="sex" >
+                #sex:TINYINT#
+            </isNotNull>
+            )
+        </dynamic>
+    </insert>
+
+</mapper>
