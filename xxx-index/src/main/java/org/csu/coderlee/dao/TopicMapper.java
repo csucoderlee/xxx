@@ -8,7 +8,7 @@ import java.util.List;
  * @author by bixi.lx
  * @created on 2017 11 15 09:05
  */
-public interface TopicDAO {
+public interface TopicMapper {
 
     /**
      * 获取帖子列表

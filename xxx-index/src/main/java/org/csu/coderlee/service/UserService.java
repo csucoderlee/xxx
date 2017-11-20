@@ -1,6 +1,6 @@
 package org.csu.coderlee.service;
 
-import org.csu.coderlee.dao.UserDAO;
+import org.csu.coderlee.dao.UserMapper;
 import org.csu.coderlee.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    UserDAO userDAO;
+    UserMapper userMapper;
 
     public User queryById(long id) {
-        return userDAO.queryById(id);
+        return userMapper.queryById(id);
     }
 }

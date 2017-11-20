@@ -9,7 +9,7 @@ import java.util.Map;
  * @author by bixi.lx
  * @created on 2017 11 10 22:51
  */
-public interface AccountDAO {
+public interface AccountMapper {
 
     /**
      * 根据用户名和密码来获取账户

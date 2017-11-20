@@ -6,7 +6,7 @@ import org.csu.coderlee.entity.User;
  * @author by csucoderlee
  * @created on 2017 11 02 15:49
  */
-public interface UserDAO {
+public interface UserMapper {
 
     /**
      * 根据id查找用户

@@ -1,6 +1,5 @@
 package org.csu.coderlee.controller;
 
-import org.csu.coderlee.dao.UserDAO;
 import org.csu.coderlee.service.AccountService;
 import org.csu.coderlee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
