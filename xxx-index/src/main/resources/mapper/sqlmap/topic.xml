@@ -14,34 +14,33 @@
         and password = #{password}
     </select>
 
-
     <insert id="insert" parameterType="Topic" >
         insert into topic
-        <dynamic prepend="(" >
-            <isnotnull prepend="," property="id" >
-                id
-            </isnotnull>
-            <isNotNull prepend="," property="name" >
-                name
-            </isNotNull>
-            <isNotNull prepend="," property="sex" >
-                sex
-            </isNotNull>
+        <trim prefix="(" prefixOverrides=",">
+            <if test=" id != null">
+                id,
+            </if>
+            <if test="name !=null">
+                name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
             )
-        </dynamic>
+        </trim>
         values
-        <dynamic prepend="(" >
-            <isNotNull prepend="," property="id" >
-                #id:INTEGER#
-            </isNotNull>
-            <isNotNull prepend="," property="name" >
-                #name:VARCHAR#
-            </isNotNull>
-            <isNotNull prepend="," property="sex" >
-                #sex:TINYINT#
-            </isNotNull>
+        <trim prefix="(" prefixOverrides=",">
+            <if test="id != null">
+                #id#,
+            </if>
+            <if test="name != null">
+                #name#,
+            </if>
+            <if test="sex != null">
+                #sex#,
+            </if>
             )
-        </dynamic>
+        </trim>
     </insert>
 
 </mapper>
