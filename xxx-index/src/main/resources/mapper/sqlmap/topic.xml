@@ -16,31 +16,39 @@
 
     <insert id="insert" parameterType="Topic" >
         insert into topic
-        <trim prefix="(" prefixOverrides=",">
-            <if test=" id != null">
-                id,
-            </if>
-            <if test="name !=null">
-                name,
-            </if>
-            <if test="sex != null">
-                sex,
-            </if>
-            )
-        </trim>
-        values
-        <trim prefix="(" prefixOverrides=",">
-            <if test="id != null">
-                #id#,
-            </if>
-            <if test="name != null">
-                #name#,
-            </if>
-            <if test="sex != null">
-                #sex#,
-            </if>
-            )
-        </trim>
+        <!--<trim prefix="(" prefixOverrides=",">-->
+            <!--<if test=" id != null">-->
+                <!--id,-->
+            <!--</if>-->
+            <!--<if test="name !=null">-->
+                <!--name,-->
+            <!--</if>-->
+            <!--<if test="sex != null">-->
+                <!--sex,-->
+            <!--</if>-->
+            <!--)-->
+        <!--</trim>-->
+        <!--values-->
+        <!--<trim prefix="(" prefixOverrides=",">-->
+            <!--<if test="id != null">-->
+                <!--#id#,-->
+            <!--</if>-->
+            <!--<if test="name != null">-->
+                <!--#name#,-->
+            <!--</if>-->
+            <!--<if test="sex != null">-->
+                <!--#sex#,-->
+            <!--</if>-->
+            <!--)-->
+        <!--</trim>-->
+        (theme, createrId, created, modified) VALUES (#theme#, #createrId#, #created#, #modified#)
     </insert>
+
+    <update id="update" parameterType="Topic">
+        UPDATE topic SET
+        <if test="theme != null and theme != ''">
+            theme = #theme#
+        </if>
+    </update>
 
 </mapper>

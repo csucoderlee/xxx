@@ -17,4 +17,6 @@ public interface TopicMapper {
     List<Topic> list();
 
     Topic insert(Topic topic);
+
+    void update(Topic topic);
 }
